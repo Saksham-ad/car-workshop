@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Admin Panel</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div id="loginForm" style="display: flex">
+            <div class="login-card">
+                <div class="login-header">
+                    <h2>Admin Login</h2>
+                </div>
+                <form onsubmit="event.preventDefault(); login();">
+                    <div class="input-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" required />
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="admin-dashboard" id="dashboard" style="display: none">
+            <h2>Manage Services</h2>
+            <div class="service-form">
+                <select id="serviceCategory">
+                    <option value="tires">Tires</option>
+                    <option value="maintenance">Maintenance</option>
+                    <option value="repairs">Repairs</option>
+                    <option value="diagnostic">Diagnostic</option>
+                </select>
+                <input
+                    type="text"
+                    id="serviceName"
+                    placeholder="Service Name"
+                    required
+                />
+                <input
+                    type="text"
+                    id="servicePrice"
+                    placeholder="Price"
+                    required
+                />
+                <input
+                    type="text"
+                    id="serviceDescription"
+                    placeholder="Description"
+                    required
+                />
+                <input type="file" id="serviceImage" accept="image/*" />
+                <button onclick="addService()">Add Service</button>
+            </div>
+            <div id="adminServicesList"></div>
+        </div>
+
+        <script type="module" src="admin.js"></script>
+    </body>
+</html>
